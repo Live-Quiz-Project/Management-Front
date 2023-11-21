@@ -39,46 +39,48 @@ const Login = (props: Props) => {
 
   return (
     <div className="flex w-full h-screen">
-      {/* <!-- Logo Section --> */}
       <div className="flex-1 flex justify-center items-center bg-oceanBlue">
-        {/* <!-- Replace with your actual logo --> */}
         <img src={logo} alt="Logo" className="w-1/2" />
       </div>
-      {/* <!-- Login Form Section --> */}
-      <div className="flex-1 grid justify-center bg-peach">
-      <img src={appName} alt="AppName" className="w-1/2" />
-        <h1 className="text-2xl font-bold flex justify-center">Login</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="block p-2 border border-gray-300 rounded"
-            />
-          </label>
-          <br />
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="block p-2 border border-gray-300 rounded"
-            />
-          </label>
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              Login
-            </button>
-          </div>
-        </form>
+      <div className="flex-1 flex justify-center items-center bg-peach">
+        <div className="w-full max-w-xs">
+          <img src={appName} alt="AppName" className="mx-auto w-4/5" />
+          <h1 className="text-2xl font-bold mt-4 text-center">Login</h1>
+          <form onSubmit={handleSubmit} className="mt-4">
+            <div className="mb-4">
+              <label className="block">
+                Email:
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="mt-1 block w-full p-2 border border-orange rounded"
+                />
+              </label>
+            </div>
+            <div className="mb-4">
+              <label className="block">
+                Password:
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="mt-1 block w-full p-2 border border-orange rounded"
+                />
+              </label>
+            </div>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="bg-orange text-white px-20 py-2 rounded-lg"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
