@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../../assets/images/logo.png";
+import appName from "../../../assets/images/appName.png";
 
 type Props = {};
 
@@ -45,7 +46,8 @@ const Login = (props: Props) => {
       </div>
       {/* <!-- Login Form Section --> */}
       <div className="flex-1 grid justify-center bg-peach">
-        <h1 className="text-2xl font-bold grid justify-center">Login</h1>
+      <img src={appName} alt="AppName" className="w-1/2" />
+        <h1 className="text-2xl font-bold flex justify-center">Login</h1>
         <form onSubmit={handleSubmit}>
           <label>
             Email:
