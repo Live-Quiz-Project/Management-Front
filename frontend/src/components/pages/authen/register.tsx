@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import logo from "../../../assets/images/logo.png";
+import appName from "../../../assets/images/appName.png";
 
 type Props = {};
 
@@ -63,32 +64,47 @@ const Register = (props: Props) => {
   };
 
   return (
-    <div>
-      <header className="App-header">
-        <p>Register</p>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Email:
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          </label>
-          <br />
-          <label>
-            Password:
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          </label>
-          <br />
-          <label>
-            Confirm Password:
-            <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-          </label>
-          <br />
-          <label>
-            Name:
-            <input type="name" value={name} onChange={(e) => setName(e.target.value)} required />
-          </label>
-          <button type="submit">Register</button>
-        </form>
-      </header>
+    <div className="flex w-full h-screen">
+      <div className="flex-1 flex justify-center items-center bg-oceanBlue">
+        <img src={logo} alt="Logo" className="w-1/2" />
+      </div>
+      <div className="flex-1 flex justify-center items-center bg-peach">
+        <div className="w-full max-w-xs">
+          <img src={appName} alt="AppName" className="mx-auto w-4/5" />
+          <h1 className="text-2xl font-bold mt-4 text-center">Register</h1>
+          <form onSubmit={handleSubmit} className="mt-4">
+            <div className="mb-4">
+              <label className="block">
+                Email:
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="mt-1 block w-full p-2 border border-orange rounded" />
+              </label>
+            </div>
+            <div className="mb-4">
+              <label className="block">
+                Password:
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="mt-1 block w-full p-2 border border-orange rounded" />
+              </label>
+            </div>
+            <div className="mb-4">
+              <label className="block">
+                Confirm Password:
+                <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className="mt-1 block w-full p-2 border border-orange rounded" />
+              </label>
+            </div>
+            <div className="mb-4">
+              <label className="block">
+                Name:
+                <input type="name" value={name} onChange={(e) => setName(e.target.value)} required className="mt-1 block w-full p-2 border border-orange rounded" />
+              </label>
+            </div>
+            <div className="flex justify-center">
+              <button type="submit" className="bg-orange text-white px-20 py-2 rounded-lg">
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
