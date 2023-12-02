@@ -2,30 +2,36 @@ import TextInput from "@/common/layouts/auth/components/TextInput";
 import { http } from "@/common/services/axios";
 import { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logIn } from "./store/slice";
 
 export default function Login() {
   const dispatch = useDispatch<StoreDispatch>();
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   async function handleOnSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const { data, status: _ } = await http.post("/login", {
-      email,
-      password,
-    });
-    dispatch(
-      logIn({
-        token: data.token,
-        user: {
-          id: data.id,
-          name: data.name,
-          email: data.email,
-        },
-      })
-    );
+    try {
+      const { data, status: _ } = await http.post("/login", {
+        email,
+        password,
+      });
+      dispatch(
+        logIn({
+          token: data.token,
+          user: {
+            id: data.id,
+            name: data.name,
+            email: data.email,
+          },
+        })
+      );
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
